@@ -1,0 +1,17 @@
+steps:
+1) npm init
+2)npm install express
+3)npm install  nodemon   nodemon index.js  
+
+4.npm i express-ejs-layouts
+5.npm i node-sass-middleware
+6.npm i noty
+7.npm i connect-flash
+8.npm i express-session //to create cookies
+9.npm i connect-mongo //use to store cookies in db
+
+10.npm i ejs
+
+11.npm i mongoose
+
+12.npm i body-parser//to get data in req.body if not then it will show undefined

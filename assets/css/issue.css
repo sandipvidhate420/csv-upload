@@ -1,0 +1,232 @@
+#create-project-container {
+  height: 50px;
+  width: 100%;
+  text-align: center; }
+  #create-project-container button {
+    width: auto;
+    margin-top: 10px;
+    height: 80%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px; }
+  #create-project-container button:hover {
+    background-color: #2371a0;
+    color: white;
+    border: 1px solid red; }
+
+.issue-modal {
+  display: none;
+  position: fixed;
+  z-index: 8;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.modal-content {
+  margin: 50px auto;
+  border: 1px solid #eee;
+  width: 60%; }
+
+h2,
+p {
+  margin: 0 0 20px;
+  font-weight: 400;
+  color: #999; }
+
+span {
+  color: #1d1c1c;
+  display: block;
+  padding: 0 0 5px; }
+
+form {
+  padding: 25px;
+  margin: 25px;
+  box-shadow: 0 2px 5px #f5f5f5;
+  background: #eee; }
+
+input,
+textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #1c87c9;
+  outline: none; }
+
+#status {
+  margin-left: 5px;
+  min-width: 90px;
+  width: auto;
+  height: 30px; }
+
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #1c87c9;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff; }
+
+.contact-form #labels {
+  text-align: left;
+  margin-bottom: 20px; }
+  .contact-form #labels input[type="checkbox"] {
+    width: auto;
+    text-align: left;
+    display: inline-block;
+    margin: 5px 0px 0px 20px;
+    width: 15px;
+    height: 15px; }
+  .contact-form #labels label {
+    color: #5b5959; }
+
+button:hover {
+  background: #2371a0; }
+
+.close {
+  color: #3b3939;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer; }
+
+#display-project-container {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center; }
+  #display-project-container h2 {
+    color: black;
+    font-weight: bolder; }
+  #display-project-container #display-project {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left; }
+    #display-project-container #display-project .project {
+      width: 100%;
+      height: auto;
+      margin: 0px 0px 10px 0px;
+      padding-bottom: 10px;
+      border: 1px solid #a5a1a1eb; }
+      #display-project-container #display-project .project .issue-title {
+        border-radius: 0px; }
+      #display-project-container #display-project .project .project-title {
+        width: 99.9%;
+        height: 50px;
+        background-color: #F7F7F7;
+        border: 1px solid #a5a1a1eb;
+        border-left: none;
+        border-top: none;
+        border-right: none; }
+        #display-project-container #display-project .project .project-title h3 {
+          margin-left: 10px;
+          display: inline-block;
+          font-weight: bolder; }
+        #display-project-container #display-project .project .project-title span {
+          display: inline-block;
+          margin-left: 10px; }
+      #display-project-container #display-project .project #display-issue-containers h1 {
+        margin-left: 10px; }
+      #display-project-container #display-project .project #display-issue-containers .btn {
+        width: auto;
+        padding: 10px;
+        margin-left: 20px;
+        border: none;
+        background: #1c87c9;
+        border: 1px solid #1c87c9;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        border-radius: 10px;
+        cursor: pointer; }
+      #display-project-container #display-project .project #display-issue-containers .issue {
+        width: 95%;
+        height: auto;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid #a5a1a1eb;
+        border-radius: 20px;
+        overflow: hidden; }
+      #display-project-container #display-project .project .project-content {
+        width: 100%; }
+        #display-project-container #display-project .project .project-content h3 {
+          margin-bottom: 0px;
+          margin-left: 10px;
+          display: inline-block;
+          font-weight: bolder; }
+        #display-project-container #display-project .project .project-content span {
+          display: inline-block;
+          margin-left: 10px; }
+        #display-project-container #display-project .project .project-content .project-description {
+          height: auto;
+          width: 100%; }
+          #display-project-container #display-project .project .project-content .project-description h3 {
+            margin-left: 10px;
+            display: inline-block;
+            font-weight: bolder; }
+          #display-project-container #display-project .project .project-content .project-description p {
+            display: inline-block;
+            margin-left: 10px; }
+        #display-project-container #display-project .project .project-content button {
+          width: auto;
+          padding: 10px;
+          margin-left: 10px;
+          border: none;
+          background: #1c87c9;
+          border: 1px solid #1c87c9;
+          font-size: 16px;
+          font-weight: 400;
+          color: #fff;
+          border-radius: 10px;
+          cursor: pointer; }
+        #display-project-container #display-project .project .project-content .label-btn:nth-child(2n) {
+          background-color: #1ad7e5;
+          margin-bottom: 15px; }
+        #display-project-container #display-project .project .project-content .label-btn:nth-child(2n+1) {
+          background-color: #e83f3f;
+          margin-bottom: 15px; }
+        #display-project-container #display-project .project .project-content button:hover {
+          background: #2371a0;
+          border: 1px solid red; }
+
+#show-filter .modal-content .contact-form form div label {
+  display: inline-block;
+  width: 50px; }
+
+#show-filter .modal-content .contact-form form div .drop-down {
+  margin-left: 15px;
+  margin-top: 10px;
+  min-width: 90px;
+  width: auto;
+  height: 30px; }
+
+#show-filter .modal-content .contact-form form #labels {
+  margin-top: 10px; }
+  #show-filter .modal-content .contact-form form #labels input[type="radio"] {
+    width: auto;
+    text-align: left;
+    display: inline-block;
+    margin: 5px 0px 0px 20px;
+    width: 15px;
+    height: 15px; }
+
+.bg-clr {
+  background-color: #fdf7f7; }
+
+@media only screen and (max-width: 800px) {
+  #display-project-container {
+    width: 100%; }
+    #display-project-container #display-project {
+      width: 95%; } }

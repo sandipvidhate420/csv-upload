@@ -1,0 +1,335 @@
+<link rel="stylesheet" href="/css/issue.css">
+<!-- <div id="create-project-container">
+    <button id="create-project" type="submit" class="button" data-modal="modalOne">Create New Project</button>
+
+</div> -->
+
+<!-- <div id="modaltwo" class="modal11"> -->
+<!-- <div class="modal-content">
+        <div class="contact-form">
+            <a class="close">&times;</a>
+            <form action="/create-project" method="post">
+                <h2>Create a new project</h2>
+                <div>
+                    <span>Name</span>
+
+                    <input class="name" type="text" name="name" placeholder="Name of your project" />
+                    <span>Author</span>
+                    <input type="text" name="author" placeholder="Name of Author" />
+
+                </div>
+                <span>Message</span>
+                <div>
+                    <textarea rows="4" name="projectDetails"
+                        placeholder="Write something about your project"></textarea>
+                </div>
+                <button type="submit" href="/">Submit</button>
+            </form>
+        </div>
+    </div> -->
+<!-- </div> -->
+
+<div id="display-project-container">
+    <h2>Project <%= project.name%>
+    </h2>
+    <div id="display-project">
+        <div class="bg-clr project">
+            <div class="project-title" style="background-color: rgb(246, 226, 226);">
+                <h3>Name of Project:</h3><span>
+                    <%= project.name%>
+                </span>
+
+
+            </div>
+            <div class="project-content">
+                <h3>Author :</h3><span>
+                    <%= project.author%>
+                </span>
+                <div class="project-description">
+                    <h3>Description :</h3>
+                    <p>
+                        <%= project.projectDetails%>
+                    </p>
+                </div>
+                <!-- -->
+                <a href="#">
+                    <button id="create-issue-button" type="submit" href="" class="button" data-modal="modalOne">Click
+                        Here to Add issues</button>
+                </a>
+
+            </div>
+
+            <div id="create-issue">
+                <div id="modalOne-issue" class="issue-modal">
+                    <div class="modal-content">
+                        <div class="contact-form">
+                            <a class="close">&times;</a>
+                            <form action="/project/create-issue/<%= project._id%>" method="post">
+                                <h2>Create a new Issue</h2>
+                                <div>
+                                    <span>Title</span>
+                                    <input class="name" type="text" name="title" placeholder="Title" required />
+
+                                    <span>Author</span>
+                                    <input type="text" name="author" placeholder="Name of Author" required /><br>
+
+                                    <label for="status">Status:</label>
+                                    <select name="status" id="status" required>
+                                        <option value="Open">Open</option>
+                                        <option value="Blocked">Blocked</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Closed">Closed</option>
+                                    </select>
+
+                                    <label for="severity">Severity:</label>
+                                    <select name="severity" id="severity" required>
+                                        <option value="Urgent">Urgent</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Intermediate">Intermediate</option>
+                                        <option value="Easy">Easy</option>
+                                    </select>
+
+                                </div>
+                                <div id="labels">
+                                    <span>Labels </span>
+                                    <input type="checkbox" id="bug" name="label" value="bug">
+                                    <label for="bug"> Bug</label><br>
+
+                                    <input type="checkbox" id="UI-Improvement" name="label" value="UI Improvement">
+                                    <label for="UI_Improvement"> UI Improvement</label><br>
+
+                                    <input type="checkbox" id="defect" name="label" value="defect">
+                                    <label for="defect"> Defect</label><br>
+
+                                    <input type="checkbox" id="Enhancement" name="label" value="Enhancement">
+                                    <label for="Enhancement"> Enhancement</label><br>
+
+                                    <input type="checkbox" id="CR" name="label" value="CR">
+                                    <label for="CR"> CR</label><br>
+
+                                    <input type="checkbox" id="Duplicate" name="label" value="Duplicate">
+                                    <label for="Duplicate"> Duplicate</label><br>
+
+                                    <!-- <span>Labels </span>
+                                    <input type="checkbox" name="bug" id="bug"> -->
+
+                                </div>
+                                <span>Description</span>
+                                <div>
+                                    <textarea rows="4" name="issueDescription"
+                                        placeholder="Write something about your project"></textarea>
+                                </div>
+                                <!-- <a > -->
+                                <button type="submit">Submit</button>
+                                <!-- </a> -->
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="display-issue-containers">
+
+                <h1>Issue List</h1>
+                <a href="/project/show-all-issue/<%= project._id%>">
+                    <button class="btn" type="submit">
+                        All isuue
+                    </button>
+                </a>
+
+                <button id="add-filter" class="btn" type="submit">
+                    Add Filter
+                </button>
+
+                <% if(issues) {%>
+                    <% for(issue of issues) {%>
+                        <div class="issue" class="project">
+                            <div class="issue-title project-title">
+                                <h3>
+                                    <%= issue.title%>
+                                </h3><span>
+
+                                </span>
+
+
+                            </div>
+                            <div class="project-content">
+                                <h3>Responsible:</h3><span>
+                                    <%= issue.author%>
+                                </span> <br>
+                                <h3>Status:</h3><span>
+                                    <%= issue.status%>
+                                </span><br>
+                                <h3>Severity:</h3><span>
+                                    <%= issue.severity%>
+                                </span><br>
+                                <div class="project-description">
+                                    <h3>Description :</h3>
+                                    <p>
+                                        <%= issue.issueDescription%>
+                                    </p>
+                                </div>
+                                <!-- -->
+                                <!-- <a href="#"> -->
+                                <% if(issue.labels) {%>
+                                    <% for(label of issue.labels) {%>
+                                        <button id="create-issue-button" type="submit" class="label-btn button"
+                                            data-modal="modalOne">
+                                            <%= label%>
+                                        </button>
+                                        <%}%>
+                                            <%}%>
+                                                <!-- </a> -->
+
+                            </div>
+                        </div>
+                        <%} %>
+                            <%} else {%>
+                                <% for(issue of project.issues) {%>
+
+                                    <div class="issue" class="project">
+                                        <div class="issue-title project-title">
+                                            <h3>
+                                                <%= issue.title%>
+                                            </h3><span>
+
+                                            </span>
+
+
+                                        </div>
+                                        <div class="project-content" style="background-color: white;">
+                                            <h3>Responsible:</h3><span>
+                                                <%= issue.author%>
+                                            </span> <br>
+                                            <h3>Status:</h3><span>
+                                                <%= issue.status%>
+                                            </span><br>
+                                            <h3>Severity:</h3><span>
+                                                <%= issue.severity%>
+                                            </span><br>
+                                            <div class="project-description">
+                                                <h3>Description :</h3>
+                                                <p>
+                                                    <%= issue.issueDescription%>
+                                                </p>
+                                            </div>
+                                            <!-- -->
+                                            <!-- <a href="#"> -->
+                                            <% if(issue.labels) {%>
+                                                <% for(label of issue.labels) {%>
+                                                    <button id="create-issue-button" type="submit"
+                                                        class="label-btn button" data-modal="modalOne">
+                                                        <%= label%>
+                                                    </button>
+                                                    <%}%>
+                                                        <%}%>
+                                                            <!-- </a> -->
+
+                                        </div>
+                                    </div>
+                                    <%}%>
+                                        <%}%>
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<div id="show-filter" class="issue-modal">
+    <div class="modal-content">
+        <div class="contact-form">
+            <a class="close">&times;</a>
+            <form action="/project/add-filter-issue/<%=project._id%>" method="post">
+                <h2>Add Filter</h2>
+                <div>
+
+                    <label for="title">Title:</label>
+                    <select class="drop-down" name="title" id="title">
+                        <option value="">
+                            Select Title
+                        </option>
+                        <% for(issue of project.issues) {%>
+                            <option value="<%= issue.title %>">
+                                <%= issue.title %>
+                            </option>
+                            <%}%>
+                    </select><br>
+
+                    <label for="author">Author:</label>
+                    <select class="drop-down" name="author" id="author">
+                        <option value="">
+                            Select Author
+                        </option>
+                        <% for(issue of project.issues) {%>
+                            <option value="<%= issue.author %>">
+                                <%= issue.author %>
+                            </option>
+                            <%}%>
+                    </select><br>
+
+                    <label for="status">Status:</label>
+                    <select class="drop-down" name="status" id="status">
+                        <option value="">
+                            Select Status
+                        </option>
+                        <option value="Open">Open</option>
+                        <option value="Blocked">Blocked</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Closed">Closed</option>
+                    </select><br>
+
+                    <label for="severity">Severity:</label>
+                    <select class="drop-down" name="severity" id="severity">
+                        <option value="">
+                            Select Severity
+                        </option>
+                        <option value="Urgent">Urgent</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Easy">Easy</option>
+                    </select><br>
+
+                </div>
+
+                <div id="labels">
+
+                    <span>Labels </span>
+                    <input type="radio" id="bug" name="label" value="bug">
+                    <label for="bug"> Bug</label><br>
+
+                    <input type="radio" id="UI-Improvement" name="label" value="UI Improvement">
+                    <label for="UI_Improvement"> UI Improvement</label><br>
+
+                    <input type="radio" id="defect" name="label" value="defect">
+                    <label for="defect"> Defect</label><br>
+
+                    <input type="radio" id="Enhancement" name="label" value="Enhancement">
+                    <label for="Enhancement"> Enhancement</label><br>
+
+                    <input type="radio" id="CR" name="label" value="CR">
+                    <label for="CR"> CR</label><br>
+
+                    <input type="radio" id="Duplicate" name="label" value="Duplicate">
+                    <label for="Duplicate"> Duplicate</label><br>
+
+                    <!-- <span>Labels </span>
+                    <input type="checkbox" name="bug" id="bug"> -->
+
+                </div>
+                <a href="/">
+                    <button type="submit" href="">Submit</button>
+                </a>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/issue.js"></script>
