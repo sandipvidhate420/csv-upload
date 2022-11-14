@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 8000;
+const hostname = "0.0.0.0";
 const reload = require('reload')
 const path = require('path');
 
@@ -73,7 +74,7 @@ app.use(express.urlencoded());//cookieParse function
 // })
 app.use('/', require('./routes/index'))//it will got to router/index file when we enter "/" this url (will accept get as well as post because use())
 
-app.listen(port, function (err) {
+app.listen(port, hostname, function (err) {
     if (err) {
         console.log(`Error in running the server: ${err}`);
     }
