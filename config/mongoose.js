@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const env = require('./environment');
-const url = `mongodb+srv://sandipvidhate:radhe123@cluster0.kkfbksy.mongodb.net/?retryWrites=true&w=majority`;
+const url = `mongodb+srv://sandipvidhate:radhe123@cluster0.kkfbksy.mongodb.net/${env.db}?retryWrites=true&w=majority`;
 
 mongoose.connect(url);
 

@@ -3,7 +3,6 @@ const app = express();
 const port = 8000;
 const reload = require('reload')
 const path = require('path');
-
 //create db
 const db = require('./config/mongoose');
 
@@ -13,6 +12,8 @@ app.use(expressLayouts);
 app.set("layout extractScripts", true)
 app.set('layout extractStyles', true);
 
+
+const env = require('./config/environment');
 //sass
 const sassMiddleware = require('node-sass-middleware');
 app.use(sassMiddleware({
@@ -40,7 +41,7 @@ app.use(session({
     },
     store: MongoStore.create(//mongo-store is used to store the  session cookies in the db
         {
-            mongoUrl: 'mongodb://localhost/codial_development',
+            mongoUrl: `mongodb+srv://sandipvidhate:radhe123@cluster0.kkfbksy.mongodb.net/${env.db}?retryWrites=true&w=majority`,
             autoRemove: 'disable',
             autoRemoveInterval: 10 // In minutes. Default
         }, function (err) {
