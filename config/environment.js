@@ -28,16 +28,7 @@ const development = {
             pass: 'yyrjrkamkaftlboa'
         }
     },
-    google_client_id: '395980760627-j174sj1knfejptf6oq95sa0pbu5lvdjh.apps.googleusercontent.com',
-    google_client_secret: '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',
-    google_callback_url: 'http://localhost:8000/users/auth/google/callback',
-    jwt_secret: 'codeial',
-    /*  morgan: {
-         mode: 'dev',
-         options: {
-             stream: accessLogStream
-         }
-     } */
+
 
 }
 
